@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<WebApplication1.Models.Shipwreck>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+
+    @if (Model.Count == 0)
+    {
+        <p>No shipwrecks yet!</p>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Lat</th>
+                <th>Long</th>
+                <th>Chart</th>
+            </tr>
+            @foreach (Shipwreck shipwreck in Model)
+            {
+                <tr>
+                    <td>@shipwreck.Id</td>
+                    <td>@shipwreck.Lat</td>
+                    <td>@shipwreck.Long</td>
+                    <td>@shipwreck.Chart</td>
+
+                </tr>
+            }
+        </table>
+    }
+
+</div>
